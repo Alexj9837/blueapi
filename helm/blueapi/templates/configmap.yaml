@@ -41,7 +41,7 @@ metadata:
   name : {{include "blueapi.fullname" . }}-pvc-stamper-script
 data:
   time-stamper.sh: |
-    #!/bin/bash
+    #!/bin/sh
     # Get PVCs belonging to this blueapi release
     ALL_PVC=$(kubectl get pvc -n {{ .Release.Namespace }} \
       -o jsonpath='{.items[*].metadata.name}' | tr ' ' '\n' | \
